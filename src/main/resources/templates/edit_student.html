@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="https://www.thymeleaf.org ">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Management System</title>
+    <!--    &lt;!&ndash; Latest compiled and minified CSS &ndash;&gt;-->
+    <!--    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+<body>
+
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" th:href="@{/students}">Student Management System</a>
+        </div>
+    </div>
+</nav>
+<br>
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6  col-md-6 col-sm-6 container justify-content-center card">
+
+            <h1 class="text-center"> Update Student Details</h1>
+            <br>
+            <div class="card-body">
+                <form th:action="@{/updateStudent/{id} (id=${student.id})}" th:object="${update_student}" method="POST">
+                    <div class="form-group">
+                        <label>Student First Name</label>
+                        <input type="text"
+                               name="firstName"
+                               th:field="${student.firstName}"
+                               class="form-control"
+                               placeholder="Enter student First Name"
+                        />
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Student Last Name</label>
+                        <input type="text"
+                               name="lastName"
+                               th:field="${student.lastName}"
+                               class="form-control"
+                               placeholder="Enter student Last Name"
+                        />
+                    </div>
+                    <div class="form-group">
+                        <label>Student Email</label>
+                        <input type="text"
+                               name="email"
+                               th:field="${student.email}"
+                               class="form-control"
+                               placeholder="Enter student email"
+                        />
+                    </div>
+
+                    <!---th:filed is used to map a class variable id name is different than the class variable name  -->
+
+                    <div class="box-footer">
+                        <button type="submit" class="btn btm-primary">
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
